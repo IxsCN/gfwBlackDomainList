@@ -47,12 +47,12 @@ f = cStringIO.StringIO(url.read())
 txt = f.read()  
 txt = base64.decodestring(txt)  
 domains = splitList(txt)  
-fh=open("gfwlist.list","a+")
+fh=open("gfwlist.list","wb+")
 per_line=""  
 print "#gfwlist"
 for line in domains:  
     if (line!=per_line):  
        print line 
-       fh.write(line+"\r")
+       fh.write(line+"\n")
     per_line=line
 fh.close()
